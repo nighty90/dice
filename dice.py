@@ -52,9 +52,9 @@ if __name__ == "__main__":
     while True:
         print("-"*20)
         dice_command = input("请输入dice指令:\n")
-        if dice_command in ["q", "quit", "exit"]:
+        if dice_command in ("q", "quit", "exit"):
             exit()
-        elif re.search(r"\d+d\d+", dice_command):
+        elif re.fullmatch(r"[+\-*/d\d() ]+", dice_command):
             d.throw_dice(dice_command)
             d.show_result()
         else:
